@@ -1,0 +1,39 @@
+int k=1 ;
+int i=1;
+int j=0;
+
+while(i<nums.size()){
+    if(nums[i]==nums[i-1]){
+        i++;
+        continue;}
+        
+    else{
+        nums[j]=nums[i-1];
+            j++;
+            i++;
+            k++;
+           
+        }
+       
+    }
+    
+
+
+  return k;
+     
+    
+//method 2
+
+/*
+          int j=0;
+        
+         for(int i=1;i<nums.size();i++){
+            if(nums[i]!=nums[j]){
+                j++;
+                nums[j]=nums[i];
+            }
+         }return j+1;
+         */
+
+
+

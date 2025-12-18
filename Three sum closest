@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int threeSumClosest(vector<int>& nums, int target) {
+    int n = nums.size();
+
+    sort(nums.begin(), nums.end());
+
+    int closestSum = 0;
+    int minDiff = INT_MAX;   // ← infinity
+
+    for (int i = 0; i < n - 2; i++) {
+
+        int left = i + 1;
+        int right = n - 1;
+
+        while (left < right) {
+
+            int currSum = nums[i] + nums[left] + nums[right];
+            int diff = abs(currSum - target);
+
+            // update minimum difference
+            if (diff < minDiff) {
+                minDiff = diff;
+                closestSum = currSum;
+            }
+
+            // move pointers
+            if (currSum < target) {
+                left++;
+            }
+            else if (currSum > target) {
+                right--;
+            }
+            else {
+                // exact target found → best possible
+                return currSum;
+            }
+        }
+    }
+    return closestSum;
+}
